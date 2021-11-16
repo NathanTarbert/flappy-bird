@@ -47,9 +47,12 @@ function handleStart() {
 
 function handleLose() {
     setTimeout(() => {
-        title.classList.remove('hide');//hides the title when the user loses
+    title.classList.remove('hide');//hides the title when the user loses
     subtitle.classList.remove('hide'); //hides the subtitle when the user loses
-    subtitle.textContent = `${getPassedPipeCount()}`; //passes in the function to count the number of pipes and displays on the screen once you lose
+    setTimeout(() => {
+        subtitle.textContent = `GAME OVER - ${getPassedPipeCount()} PIPES`; //passes in the function to count the number of pipes and displays on the screen once you lose
+    }, 400);
+    
     document.addEventListener("keypress", handleStart, { once: true }); //this will restart the game by "keypress" once the game ends
-    }, 100);//adds a delay before the game can be restarted    
+    }, 200);//adds a delay before the game can be restarted    
 }   
