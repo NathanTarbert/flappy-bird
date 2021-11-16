@@ -1,6 +1,6 @@
 const birdElem = document.querySelector('[data-bird]');
 const BIRD_SPEED = 0.5;
-const JUMP_DURATION = 125;
+const JUMP_DURATION = 125;//jump = 125 pixels
 let timeSinceLastJump = Number.POSITIVE_INFINITY;
 
 
@@ -15,8 +15,7 @@ export function updateBird(delta) { //check time since last jump and update
         setTop(getTop() - BIRD_SPEED * delta); //this moves the bird up
     }else {
         setTop(getTop() + BIRD_SPEED * delta); //this moves the bird down
-    }
-    
+    }    
     timeSinceLastJump += delta;
 }
 
@@ -29,11 +28,10 @@ function setTop(top) {
 }
 
 function getTop() {
-    return parseFloat(getComputedStyle(birdElem).getPropertyValue('--bird-top'));
+    return parseFloat(getComputedStyle(birdElem).getPropertyValue('--bird-top'));//make sure you change the property value to a number from a string
 }
 
 function handleJump(e) {
-    if (e.code !== 'Space') return;
-
+    if (e.code !== 'Space') return;//uses the space bar to jump
     timeSinceLastJump = 0;
 }

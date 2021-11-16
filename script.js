@@ -28,7 +28,7 @@ function checkLose() {
     return outsideworld || insidePipe;
 }
 
-function isCollision(rect1, rect2) {
+function isCollision(rect1, rect2) { //this will check to see if any corners of the pipes have had a collision
     return (
         rect1.left < rect2.right &&
         rect1.top < rect2.bottom &&
@@ -51,8 +51,7 @@ function handleLose() {
     subtitle.classList.remove('hide'); //hides the subtitle when the user loses
     setTimeout(() => {
         subtitle.textContent = `GAME OVER - ${getPassedPipeCount()} PIPES`; //passes in the function to count the number of pipes and displays on the screen once you lose
-    }, 400);
-    
+    }, 400);    
     document.addEventListener("keypress", handleStart, { once: true }); //this will restart the game by "keypress" once the game ends
     }, 200);//adds a delay before the game can be restarted    
 }   

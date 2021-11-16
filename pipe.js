@@ -1,6 +1,6 @@
 const HOLE_HEIGHT = 200;
 const PIPE_WIDTH = 120;
-const PIPE_INTERVAL = 1500;
+const PIPE_INTERVAL = 1300;
 const PIPE_SPEED = 0.75;
 let pipes = [];
 let timeSinceLastPipe;
@@ -12,6 +12,7 @@ export function setupPipes() {
     pipes.forEach(pipe => pipe.remove());
     timeSinceLastPipe = PIPE_INTERVAL;
     passedPipeCount = 0;//initially sets the pipes that are passed to 0
+    
 }
 
 export function updatePipes(delta) {
@@ -24,9 +25,12 @@ export function updatePipes(delta) {
     pipes.forEach(pipe => {
         if (pipe.left + PIPE_WIDTH < 0) {
             passedPipeCount++; //counts the number of pipes the user passes
-            return pipe.remove();
+            return pipe.remove(); //removes the pipes that leave the screen
         }
         pipe.left = pipe.left - delta * PIPE_SPEED; // for each pipe it is setting the speed to the left
+        // if( passedPipeCount >= 5) {
+        // pipe.left = pipe.left - delta * PIPE_SPEED + 0.001; //speed up the intervals if the count is greater than 5
+        // }        
     });    
 }
 
