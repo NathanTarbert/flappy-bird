@@ -1,5 +1,5 @@
 # flappy-bird
-This game is deployed to: https://brave-boyd-0fd91e.netlify.app/
+This game is deployed to: https://nathans-flappy-bird-game.netlify.app/
 
 The idea is to build a simple flappy bird game using only Javascript, HTML and CSS. This is an ongoing project... 
 
